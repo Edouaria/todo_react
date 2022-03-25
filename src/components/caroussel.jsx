@@ -44,13 +44,13 @@ const Caroussel = () => {
             setIndex(index - 1)
         }
     }
- 
+
     return (
         <div>
             <p>I am a caroussel</p>
             <div style={style.div}>
                 <button style={style.button} onClick={decrement}><AiFillCaretLeft /></button>
-                <img src={list[index]} alt="img" width="200px" />
+                <img src={list[index]} alt="" width="200px" />
                 <button style={style.button} onClick={increment}><AiFillCaretRight /></button>
             </div>
         </div>
