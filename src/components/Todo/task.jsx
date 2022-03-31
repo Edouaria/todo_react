@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Button } from '../'
 
 
 const Task = ({ data, index, delete_task, edit_task, save_edition, cancel_edition, is_done, is_hover }) => {
@@ -32,19 +33,6 @@ const Task = ({ data, index, delete_task, edit_task, save_edition, cancel_editio
             msUserSelect: 'none',
             userSelect: 'none',
             OUserSelect: 'none'
-        },
-        button: {
-            margin: '5px',
-            backgroundColor: 'royalblue',
-            fontSize: '2rem',
-            fontWeight: 'bold',
-            color: '#282c34',
-            height: '30px',
-            border: 'none',
-            padding: '0px 10px',
-            font: 'inherit',
-            cursor: 'pointer',
-            outline: 'inherit',
         },
         span_1: {
             position: 'relative',
@@ -89,6 +77,10 @@ const Task = ({ data, index, delete_task, edit_task, save_edition, cancel_editio
         setValue(e.target.value)
     }
 
+    const toto = () => {
+        console.log('frout')
+    }
+
     return (
         <>
             {data.edit ?
@@ -96,16 +88,16 @@ const Task = ({ data, index, delete_task, edit_task, save_edition, cancel_editio
                     <span style={data.is_hover ? style.span_1_hover : style.span_1} ></span>
                     <span style={data.is_done ? style.span_2.done : style.span_2.not_done} ></span>
                     <input style={style.inputEdit} type="text" onChange={handleInput} />
-                    <button style={style.button} onClick={() => save_edition(index, value)} >Save</button>
-                    <button style={style.button} onClick={() => cancel_edition(index)} >Cancel</button>
+                    <Button name='Save' style={style.button} click={() => save_edition(index, value)} />
+                    <Button name='Cancel' style={style.button} click={() => cancel_edition(index)} />
                 </li>
                 :
                 <li style={data.is_hover ? style.liHover : style.li} key={data.id} onClick={() => is_done(index)} onMouseEnter={() => is_hover(index)} onMouseLeave={() => is_hover(index)}>
                     <span style={data.is_hover ? style.span_1_hover : style.span_1} ></span>
                     <span style={data.is_done ? style.span_2.done : style.span_2.not_done} ></span>
                     <input style={style.inputNoEdit} type="text" value={data.name} readOnly />
-                    <button style={style.button} onClick={(e) => edit_task(e, index)} >Edit</button>
-                    <button style={style.button} onClick={(e) => delete_task(e, index)} >Delete</button>
+                    <Button name='Edit' style={style.button} click={(e) => edit_task(e, index)} />
+                    <Button name='Delete' style={style.button} click={(e) => delete_task(e, index)} />
                 </li>
             }
         </>

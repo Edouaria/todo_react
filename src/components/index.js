@@ -1,3 +1,5 @@
 export * from './caroussel'
 export * from './banner'
+export * from './psy_model'
+export * from './button'
 export * from './Todo/'

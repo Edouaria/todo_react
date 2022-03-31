@@ -3,6 +3,7 @@ import './App.css';
 import {
   Banner,
   Caroussel,
+  Psy_model,
   Todo
 } from './components'
 
@@ -25,6 +26,8 @@ function App() {
         <Caroussel />
         <hr style={style.hr} />
         <Todo />
+        <hr style={style.hr} />
+        <Psy_model />
         <Banner />
       </header>
     </div>
