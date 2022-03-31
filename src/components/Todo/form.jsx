@@ -44,7 +44,8 @@ const Form = ({ submit }) => {
                 {
                     id: Date.now(),
                     name: value,
-                    is_done: false
+                    is_done: false,
+                    is_hover: false
                 }
             )
             setValue('')

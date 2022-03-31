@@ -53,6 +53,11 @@ const Todo = () => {
         setTasks(copy_tasks)
     }
 
+    const is_hover = (index) => {
+        let copy_tasks = [...tasks]
+        copy_tasks[index].is_hover = !copy_tasks[index].is_hover
+        setTasks(copy_tasks)
+    }
     return (
         <div>
             <Form submit={add_task} />
@@ -66,6 +71,7 @@ const Todo = () => {
                         save_edition={save_edition}
                         cancel_edition={cancel_edition}
                         is_done={is_done}
+                        is_hover={is_hover}
                     />
                 )}
             </ul>
