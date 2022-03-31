@@ -37,14 +37,18 @@ const Form = ({ submit }) => {
 
     const add_task = e => {
         e.preventDefault()
-        submit(
-            {
-                id: Date.now(),
-                name: value,
-                is_done: false
-            }
-        )
-        setValue('')
+        if (value == '') {
+            return
+        } else {
+            submit(
+                {
+                    id: Date.now(),
+                    name: value,
+                    is_done: false
+                }
+            )
+            setValue('')
+        }
     }
 
     return (

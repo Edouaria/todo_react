@@ -49,7 +49,6 @@ const Todo = () => {
 
     const is_done = (index) => {
         let copy_tasks = [...tasks]
-        console.log(copy_tasks[index].is_done);
         copy_tasks[index].is_done = !copy_tasks[index].is_done
         setTasks(copy_tasks)
     }

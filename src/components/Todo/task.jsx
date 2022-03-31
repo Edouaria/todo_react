@@ -7,6 +7,11 @@ const Task = ({ data, index, delete_task, edit_task, save_edition, cancel_editio
             display: 'flex',
             listStyleType: 'none',
         },
+        liHover: {
+            display: 'flex',
+            listStyleType: 'none',
+            backgroundColor: 'rgb(0, 0, 0, .2)'
+        },
         inputEdit: {
             outline: 'none',
             border: 'none',
@@ -18,6 +23,7 @@ const Task = ({ data, index, delete_task, edit_task, save_edition, cancel_editio
             outline: 'none',
             border: 'none',
             fontSize: '20px',
+            margin: '6px',
             marginLeft: '12px',
             backgroundColor: '#282c34',
             color: 'white',
@@ -45,6 +51,7 @@ const Task = ({ data, index, delete_task, edit_task, save_edition, cancel_editio
             width: '30px',
             height: '30px',
             margin: '6px 0px',
+            marginLeft: '6px',
             backgroundColor: 'rgb(0, 0, 0, .2)',
         },
         span_2: {
@@ -53,6 +60,7 @@ const Task = ({ data, index, delete_task, edit_task, save_edition, cancel_editio
                 width: '30px',
                 height: '30px',
                 margin: '6px 0px',
+                marginLeft: '6px',
                 backgroundColor: 'darkorchid',
                 transition: '.2s',
             },
@@ -61,6 +69,7 @@ const Task = ({ data, index, delete_task, edit_task, save_edition, cancel_editio
                 width: '0px',
                 height: '30px',
                 margin: '6px 0px',
+                marginLeft: '6px',
                 backgroundColor: 'darkorchid',
                 transition: '.2s'
             }
@@ -68,15 +77,20 @@ const Task = ({ data, index, delete_task, edit_task, save_edition, cancel_editio
     }
 
     const [value, setValue] = useState('')
+    const [is_hover, setHover] = useState(false)
 
     const handleInput = e => {
         setValue(e.target.value)
     }
 
+    const hover = () => {
+        setHover(!is_hover)
+    }
+
     return (
         <div>
             {data.edit == true ?
-                <li style={style.li} key={data.id} >
+                <li style={is_hover ? style.liHover : style.li} key={data.id} >
                     <span style={style.span_1} ></span>
                     <span style={data.is_done ? style.span_2.done : style.span_2.not_done} ></span>
                     <input style={style.inputEdit} type="text" onChange={handleInput} />
@@ -84,7 +98,7 @@ const Task = ({ data, index, delete_task, edit_task, save_edition, cancel_editio
                     <button style={style.button} onClick={() => cancel_edition(index)} >Cancel</button>
                 </li>
                 :
-                <li style={style.li} key={data.id} onClick={() => is_done(index)}>
+                <li style={is_hover ? style.liHover : style.li} key={data.id} onClick={() => is_done(index)} onMouseEnter={hover} onMouseLeave={hover}>
                     <span style={style.span_1} ></span>
                     <span style={data.is_done ? style.span_2.done : style.span_2.not_done} ></span>
                     <input style={style.inputNoEdit} type="text" value={data.name} readOnly />

@@ -1,7 +1,7 @@
 import logo from './img/krita_logo.png'
 import './App.css';
 import {
-  Footer,
+  Banner,
   Caroussel,
   Todo
 } from './components'
@@ -18,13 +18,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Banner />
         <img src={logo} className="App-logo" alt="logo" />
         <h2>What is that ?</h2>
         <hr style={style.hr} />
         <Caroussel />
         <hr style={style.hr} />
         <Todo />
-        <Footer />
+        <Banner />
       </header>
     </div>
   );

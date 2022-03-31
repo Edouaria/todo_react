@@ -1,3 +1,3 @@
 export * from './caroussel'
-export * from './footer'
+export * from './banner'
 export * from './Todo/'
