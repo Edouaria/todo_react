@@ -90,7 +90,7 @@ const Task = ({ data, index, delete_task, edit_task, save_edition, cancel_editio
     }
 
     return (
-        <div>
+        <>
             {data.edit ?
                 <li style={data.is_hover ? style.liHover : style.li} key={data.id} >
                     <span style={data.is_hover ? style.span_1_hover : style.span_1} ></span>
@@ -108,7 +108,7 @@ const Task = ({ data, index, delete_task, edit_task, save_edition, cancel_editio
                     <button style={style.button} onClick={(e) => delete_task(e, index)} >Delete</button>
                 </li>
             }
-        </div>
+        </>
     )
 }
 
